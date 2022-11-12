@@ -4,50 +4,54 @@ import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
 import SavedPlaylists from './SavedPlaylists'
-import About from './About'
+// import About from './About'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { withAuth0 } from "@auth0/auth0-react";
-import Login from './Login';
+import Logout from './Logout';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       savedPlaylists: [],
-      newPlaylist: {},
+      // newPlaylist: {},
       notes: []
     }
   }
 
-  async componentDidMount() {
-    // new for lab 15
-    if (this.props.auth0.isAuthenticated) {
-      const res = await this.props.auth0.getIdTokenClaims();
-      const jwt = res.__raw;
+  // async componentDidMount() {
+  //   // new for lab 15
+  //   console.log('Made it!');
+  //   console.log(this.props.auth0);
 
-      // leave this console here in order to grab your token for backend testing in Thunder Client
-      console.log('token: ', jwt);
+  //   if (this.props.auth0.isAuthenticated) {
+  //     const res = await this.props.auth0.getIdTokenClaims();
+  //     const jwt = res.__raw;
 
-      const config = {
-        headers: { "Authorization": `Bearer ${jwt}` },
-        method: 'get',
-        baseURL: process.env.REACT_APP_SERVER,
-        url: '/playlist'
-      }
+  //     // leave this console here in order to grab your token for backend testing in Thunder Client
+  //     console.log('token: ', jwt);
 
-      const playlistResponse = await axios(config);
+  //     const config = {
+  //       headers: { "Authorization": `Bearer ${jwt}` },
+  //       method: 'get',
+  //       baseURL: process.env.REACT_APP_SERVER,
+  //       url: '/playlist'
+  //     }
 
-      console.log("Playlist from SpotifyApi: ", playlistResponse.data);
+  //     const playlistResponse = await axios(config);
+
+  //     console.log("Playlist from SpotifyApi: ", playlistResponse.data);
       
-      this.setState({ newPlaylist: playlistResponse.data });
-    }
-  }
+  //     this.setState({ newPlaylist: playlistResponse.data });
+  //   }
+  // }
 
   render() {
     return (
@@ -61,21 +65,22 @@ class App extends React.Component {
                   <Content 
                   newPlaylist = {this.state.newPlaylist}/>
                 :
-                <Login />
+                <Logout />
               }
             >
             </Route>
+            
             <Route
               exact path="/mymixtapes"
               element={<SavedPlaylists 
                           savedPlaylists={this.state.savedPlaylists}/>}
             >
             </Route>
-            <Route
+            {/* <Route
               exact path="/about"
               element={<About />}
-            >
-            </Route>
+            > */}
+            {/* </Route> */}
           </Routes>
           <Footer />
         </Router>
