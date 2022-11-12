@@ -2,6 +2,7 @@ import React from 'react';
 // import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm'
+// import NavBar from './NavBar';
 import NewPlaylist from './NewPlaylist';
 
 class Content extends React.Component {
@@ -41,11 +42,12 @@ class Content extends React.Component {
   render() {
     return (
       <>
-      <NavBar />
+      {/* <NavBar /> */}
         <InputForm />
         <h1>Recommended Playlist</h1>
         <NewPlaylist
             newPlaylist = {this.props.newPlaylist}
+            handleSavePlaylist = {this.props.handleSavePlaylist}
         />
       </>
     )
