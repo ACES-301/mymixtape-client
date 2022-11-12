@@ -11,7 +11,7 @@ const Profile = () => {
   
       try {
         const accessToken = await getAccessTokenSilently({
-          audience: `https://${domain}/api/v2/`,
+          : `https://${domain}/api/v2/`,
           scope: "read:current_user",
         });
   
