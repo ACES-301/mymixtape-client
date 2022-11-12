@@ -41,6 +41,7 @@ class Content extends React.Component {
   render() {
     return (
       <>
+      <NavBar />
         <InputForm />
         <h1>Recommended Playlist</h1>
         <NewPlaylist
