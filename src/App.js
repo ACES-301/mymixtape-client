@@ -14,6 +14,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Sidebar from './Sidebar';
 
 class App extends React.Component {
   constructor(props) {
@@ -68,9 +69,13 @@ const response = await axios(config);
 
 render() {
   return (
-    <div className='app'>
-      <Router>
+    <Router>
         <Header />
+        <div className='App'>
+          <div className='sidebar'>
+       <Sidebar/>
+       </div>
+        <div className='notSidebar'>
         <Routes>
           <Route
             exact path="/"
@@ -96,9 +101,10 @@ render() {
           >
           </Route>
         </Routes>
+        </div>
+    </div>
         <Footer />
       </Router>
-    </div>
   )
 }
 }

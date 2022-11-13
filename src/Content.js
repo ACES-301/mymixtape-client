@@ -41,7 +41,7 @@ class Content extends React.Component {
 
   render() {
     return (
-      <>
+      <div className='content'>
       {/* <NavBar /> */}
         <InputForm />
         <h1>Recommended Playlist</h1>
@@ -49,7 +49,7 @@ class Content extends React.Component {
             newPlaylist = {this.props.newPlaylist}
             handleSavePlaylist = {this.props.handleSavePlaylist}
         />
-      </>
+      </div>
     )
   }
 }

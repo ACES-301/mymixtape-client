@@ -21,7 +21,9 @@ class NewPlaylist extends React.Component {
                             uri={playlist.uri}
                             size={size}
                             view={view}
-                            theme={theme} /><Button onChange={this.props.handleSavePlaylist} variant="outlined">Save to My Mixtapes</Button>
+                            theme={theme} />
+                            <Button 
+                            onChange={this.props.handleSavePlaylist(playlist)} variant="outlined">Save to My Mixtapes</Button>
                     </>
                 )}
 
