@@ -8,7 +8,7 @@ import About from './About'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import { withAuth0 } from "@auth0/auth0-react";
-import Login from './Login';
+// import Login from './Login';
 import {
   BrowserRouter as Router,
   Routes,

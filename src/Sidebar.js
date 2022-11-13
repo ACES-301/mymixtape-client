@@ -2,11 +2,12 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './Sidebar.css'
+import AuthButtons from './AuthButtons';
 
 function Sidebar() {
     return(
         <div className='container-fluid'>
-             <div className='col-auto vh-100 bg-dark'>
+             <div className='col-auto vh-100'>
                 <ul>
                     <li>
                         <a href= "/" className='nav-link px-2'>
@@ -27,6 +28,9 @@ function Sidebar() {
                         <a href= "/about" className='nav-link px-2'>
                             <i className= 'bi bi-people' /> <span className='ms-1 d-none d-sm-inline'>About Us</span>
                         </a>
+                    </li>
+                    <li>
+                    <AuthButtons/>
                     </li>
                 </ul>
              </div>

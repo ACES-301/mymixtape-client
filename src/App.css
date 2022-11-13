@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 html,body {
   height:100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: gray;
 }
 
 .App {
@@ -7,8 +15,9 @@ html,body {
   text-align: center;
 }
 
-
 .header {
+  height: 180px;
+  background-color: #9FB5A3;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -16,17 +25,29 @@ html,body {
 
 .headerTitle{
   padding:.5em;
+  font-family: 'Pacifico', cursive;
   /* background-color: #282c34; */
   color: white;
-  font-size: 4em;
+  letter-spacing: 2.5px;
+  font-size: 4.5em;
 }
 
-.login {
+/* .login {
   margin-top: 5em;
   margin-right: 2em;
+} */
+
+Button {
+  border: none;
+  color: gray;
+  width: 150px;
 }
 
 .content {
   padding: 3em;
 }
 
+.footer {
+  padding-left: 30px;
+  background-color: #9FB5A3;
+}
