@@ -14,6 +14,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { Buffer } from 'buffer';
+// import querystring from 'querystring';
 
 
 class App extends React.Component {
@@ -22,38 +24,41 @@ class App extends React.Component {
     this.state = {
       savedPlaylists: [],
       // newPlaylist: {},
-      notes: []
+      notes: [],
+      code: new URLSearchParams(window.location.search).get("code"),
+      state: new URLSearchParams(window.location.search).get("state"),
+      // code_verifier: new URLSearchParams(window.location.search).get("code_verifier")
     }
   }
 
-  // async componentDidMount() {
-  //   // new for lab 15
-  //   console.log('Made it!');
-  //   console.log(this.props.auth0);
+  componentDidMount = async () => {
+    if (this.state.code) {
+      const config = {
+        method: "post",
+        baseURL: 'https://accounts.spotify.com/api/token',
+        data: URLSearchParams.toString({
+          code: this.state.code,
+          // redirect_uri: window.location.origin,
+          redirect_uri: 'https://dev-xilzfwl68pl0aigp.us.auth0.com/login/callback',
+          grant_type: 'authorization_code',
+          // client_id: process.env.REACT_APP_CLIENTID
+        }),
+        headers: {
+          'Authorization': 'Basic ' + (new Buffer.from(process.env.REACT_APP_CLIENTID + ':' + process.env.REACT_APP_CLIENT_SECRET).toString('base64')),
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        // json: true,
+      };
+      console.log("AuthOption: ", config);
+      const response = await axios(config);
+      console.log('Res: ', response.data);
+    }
+  }
 
-  //   if (this.props.auth0.isAuthenticated) {
-  //     const res = await this.props.auth0.getIdTokenClaims();
-  //     const jwt = res.__raw;
-
-  //     // leave this console here in order to grab your token for backend testing in Thunder Client
-  //     console.log('token: ', jwt);
-
-  //     const config = {
-  //       headers: { "Authorization": `Bearer ${jwt}` },
-  //       method: 'get',
-  //       baseURL: process.env.REACT_APP_SERVER,
-  //       url: '/playlist'
-  //     }
-
-  //     const playlistResponse = await axios(config);
-
-  //     console.log("Playlist from SpotifyApi: ", playlistResponse.data);
-      
-  //     this.setState({ newPlaylist: playlistResponse.data });
-  //   }
-  // }
 
   render() {
+    console.log('State: ', this.state);
+    console.log('Auth0: ', this.props.auth0);
     return (
       <div className='app'>
         <Router>
@@ -62,18 +67,18 @@ class App extends React.Component {
             <Route
               exact path="/"
               element={this.props.auth0.isAuthenticated ?
-                  <Content 
-                  newPlaylist = {this.state.newPlaylist}/>
+                <Content
+                  newPlaylist={this.state.newPlaylist} />
                 :
                 <Logout />
               }
             >
             </Route>
-            
+
             <Route
               exact path="/mymixtapes"
-              element={<SavedPlaylists 
-                          savedPlaylists={this.state.savedPlaylists}/>}
+              element={<SavedPlaylists
+                savedPlaylists={this.state.savedPlaylists} />}
             >
             </Route>
             {/* <Route
