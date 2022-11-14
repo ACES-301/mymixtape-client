@@ -8,12 +8,13 @@ import About from './About'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 // import { withAuth0 } from "@auth0/auth0-react";
-import Login from './Login';
+// import Login from './Login';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import Sidebar from './Sidebar';
 
 class App extends React.Component {
   constructor(props) {
@@ -84,9 +85,13 @@ handleAddNote = async (noteToBeAdded) => {
 
 render() {
   return (
-    <div className='app'>
-      <Router>
+    <Router>
         <Header />
+        <div className='App'>
+          <div className='sidebar'>
+       <Sidebar/>
+       </div>
+        <div className='notSidebar'>
         <Routes>
           <Route
             exact path="/"
@@ -112,9 +117,10 @@ render() {
           >
           </Route>
         </Routes>
+        </div>
+    </div>
         <Footer />
       </Router>
-    </div>
   )
 }
 }
