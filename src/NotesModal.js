@@ -24,11 +24,11 @@ class NotesModal extends React.Component {
         render() {
     return (
     <>
-      <Button variant="primary" onClick={this.handleShow}>Create a new book!</Button>
+      <Button id="addNoteButton" variant="primary" onClick={this.handleShow}>Annotate this Mixtape!</Button>
 
-      <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
+      <Modal id="modalId" show={this.state.show} onHide={this.handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Annotate this Mixtape:</Modal.Title>
+          <Modal.Title>Notes</Modal.Title>
         </Modal.Header>
         <Modal.Body><Container>
                 <Form onSubmit={this.onSubmit}>

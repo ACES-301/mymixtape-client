@@ -108,7 +108,8 @@ render() {
           <Route
             exact path="/mymixtapes"
             element={<SavedPlaylists
-              savedPlaylists={this.state.savedPlaylists} />}
+              savedPlaylists={this.state.savedPlaylists}
+              newNote={this.state.notes} />}
           >
           </Route>
           <Route

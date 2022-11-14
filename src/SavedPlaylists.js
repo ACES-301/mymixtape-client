@@ -1,5 +1,6 @@
 import React from 'react';
 import SpotifyPlayer from 'react-spotify-player';
+import NotesModal from './NotesModal';
 
 const size = {
     width: '100%',
@@ -15,11 +16,14 @@ class SavedPlaylists extends React.Component {
             <>
                 <h1>My Mixtapes</h1>
                 {this.props.savedPlaylists.map(playlist =>
-                    <SpotifyPlayer
+                <>
+                <NotesModal />
+                <SpotifyPlayer
                         uri={playlist.uri}
                         size={size}
                         view={view}
                         theme={theme} />
+                        </>
                 )
                 }
             </>
