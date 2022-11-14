@@ -65,6 +65,22 @@ const response = await axios(config);
 
   }
 }
+handleAddNote = async (noteToBeAdded) => {
+  try {
+    const config = {
+      method: 'post',
+      baseURL: process.env.REACT_APP_SERVER,
+      url: '/playlist',
+      data: noteToBeAdded
+    }
+
+    const res = await axios(config);
+    this.setState({ notes: [...this.state.notes, res.data] });
+  } catch(err) {
+    console.error('Error is in the App.js in the handleAddNote Function: ', err);
+    this.setState({ errMessage: `Status Code ${err.res.status}: ${err.res.data}`});
+  }
+}
 
 render() {
   return (
