@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm'
+// import NavBar from './NavBar';
 import NewPlaylist from './NewPlaylist';
 
 
@@ -42,13 +43,20 @@ class Content extends React.Component {
 
   render() {
     return (
-      <>
-        <InputForm />
-        <h1>Recommended Playlist</h1>
+      <div className='content'>
+      {/* <NavBar /> */}
+        <InputForm
+        handleSearchPlaylist = {this.props.handleSearchPlaylist}
+        handleChangeKeyword = {this.props.handleChangeKeyword}
+        handleChangeGenre = {this.props.handleChangeGenre}
+        />
         <NewPlaylist
             newPlaylist = {this.props.newPlaylist}
+            handleSavePlaylist = {this.props.handleSavePlaylist}
+            keyword={this.props.keyword}
+            genre={this.props.genre}
         />
-      </>
+      </div>
     )
   }
 }
