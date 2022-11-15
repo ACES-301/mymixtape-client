@@ -1,6 +1,7 @@
 import React from 'react';
 import SpotifyPlayer from 'react-spotify-player';
 import Button from '@mui/material/Button';
+import NotesCard from './NotesCard';
 
 
 const size = {
@@ -22,8 +23,8 @@ class NewPlaylist extends React.Component {
                             size={size}
                             view={view}
                             theme={theme} />
-                            <Button 
-                            onChange={this.props.handleSavePlaylist(playlist)} variant="outlined">Save to My Mixtapes</Button>
+                        <NotesCard />
+                        <Button id="contentButton" onChange={this.props.handleSavePlaylist(playlist)} variant="outlined">SAVE TO MY MIXTAPES</Button>
                     </>
                 )}
 

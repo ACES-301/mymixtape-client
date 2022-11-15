@@ -24,7 +24,7 @@ class NotesModal extends React.Component {
         render() {
     return (
     <>
-      <Button id="addNoteButton" variant="primary" onClick={this.handleShow}>Annotate this Mixtape!</Button>
+      <Button id="addNoteButton" onClick={this.handleShow}>ANNOTATE</Button>
 
       <Modal id="modalId" show={this.state.show} onHide={this.handleClose} animation={false}>
         <Modal.Header closeButton>
@@ -41,16 +41,13 @@ class NotesModal extends React.Component {
                     />
                 </Form.Group>
 
-                <Button type="submit">Add Note</Button>
+                <Button id="modalButton" type="submit" onClick={this.handleClose}>Add Note</Button>
 
                 </Form>
             </Container></Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleClose}>
+          <Button id="modalButton" variant="secondary" onClick={this.handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={this.handleClose}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>

@@ -44,7 +44,6 @@ class Content extends React.Component {
       <div className='content'>
       {/* <NavBar /> */}
         <InputForm />
-        <h1>Recommended Playlist</h1>
         <NewPlaylist
             newPlaylist = {this.props.newPlaylist}
             handleSavePlaylist = {this.props.handleSavePlaylist}

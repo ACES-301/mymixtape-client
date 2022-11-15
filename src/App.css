@@ -17,7 +17,7 @@ body {
 
 .header {
   height: 180px;
-  background-color: #9FB5A3;
+  background-image: linear-gradient(to right, #9FB5A3 25%, #c7e5ce 100%);
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -41,16 +41,76 @@ Button {
   border: none;
   color: gray;
   width: 150px;
+  border-radius: 6px;
 }
 
-/* #addNoteButton {
- 
+.menuItem {
+  border: none;
+  color: white;
+  background-color: gray;
 }
 
-# modalId {
+#contentButton {
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  background-image: linear-gradient(to right, #c7e5ce 0%, #e9ffeb 100%);
+  background-color: gray;
+  width: 15rem;
+  transition: 0.5s;
+  box-shadow: 0 0 20px #eee;
+  margin: 1rem;
+  height: 3rem;
+  border-radius: 6px;
+  box-shadow: 5px 5px
+  rgba(0, 0, 0, 0.1);
+}
 
+.contentButton:hover {
+  background-position: right center;
+}
 
-} */
+#saveButton:hover {
+    background-position: right center;
+}
+
+#addNoteButton {
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  background-image: linear-gradient(to right, #c7e5ce 0%, #e9ffeb 100%);
+  width: 15rem;
+  transition: 0.5s;
+  box-shadow: 0 0 20px #eee;
+  height: 3rem;
+  border-radius: 6px;
+  box-shadow: 5px 5px
+  rgba(0, 0, 0, 0.1);
+}
+
+#addNoteButton:hover {
+  background-position: right center;
+}
+
+#modalId {
+  border: none;
+  color: gray;
+
+} 
+
+#modalButton {
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #c7e5ce 0%, #e9ffeb 100%);
+  width: 15rem;
+  transition: 0.5s;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+  box-shadow: 5px 5px
+  rgba(0, 0, 0, 0.1);
+}
 
 .content {
   padding: 3em;

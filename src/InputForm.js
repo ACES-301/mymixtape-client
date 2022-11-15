@@ -55,18 +55,22 @@ class InputForm extends React.Component {
               label="Genre"
             // onChange={handleChange}
             >
-              <MenuItem value={'Pop'}>Pop</MenuItem>
-              <MenuItem value={'Rap'}>Rap</MenuItem>
-              <MenuItem value={'Dance'}>Dance</MenuItem>
+              <MenuItem className="menuItem" value={'Alternative'}>Alternative</MenuItem>
+              <MenuItem className="menuItem" value={'Classical'}>Classical</MenuItem>
+              <MenuItem className="menuItem" value={'Dance'}>Dance</MenuItem>
+              <MenuItem className="menuItem" value={'Indie'}>Indie</MenuItem>
+              <MenuItem className="menuItem" value={'Pop'}>Pop</MenuItem>
+              <MenuItem className="menuItem" value={'Rap'}>Rap</MenuItem>
+              <MenuItem className="menuItem" value={'Rock'}>Rock</MenuItem>
             </Select>
 
           </FormControl>
-            <Button variant="contained" size='large' style={{backgroundColor: 'gray', height: '55px' }}
+            <Button id="contentButton" variant="contained" size='large' style={{backgroundColor: 'gray', height: '55px' }}
               onClick={() => {
                 alert('clicked');
               }}
             >
-              Search
+              SEARCH
             </Button>
         </Box>
       </Container>

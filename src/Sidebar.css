@@ -1,7 +1,7 @@
 .container-fluid {
     padding: 0;
     height: 100%;
-    background-color: #9FB5A3;
+    background-image: linear-gradient(to bottom, #9FB5A3 0%, #c7e5ce 100%);
 }
 
 ul {
