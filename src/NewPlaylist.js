@@ -9,7 +9,7 @@ const size = {
     height: 300,
 };
 const view = 'list'; // or 'coverart'
-const theme = 'black'; // or 'white'
+const theme = 'white'; // or 'black'
 
 class NewPlaylist extends React.Component {
     render() {
@@ -18,13 +18,13 @@ class NewPlaylist extends React.Component {
                 <h1>Fresh Mixtape</h1>
                 {this.props.newPlaylist.map(playlist =>
                     <>
-                        <SpotifyPlayer
+                        <SpotifyPlayer id="spotifyPlayer"
                             uri={playlist.uri}
                             size={size}
                             view={view}
                             theme={theme} />
                         <NotesCard />
-                        <Button id="contentButton" onChange={this.props.handleSavePlaylist(playlist)} variant="outlined">SAVE TO MY MIXTAPES</Button>
+                        <Button className="contentButton" onChange={this.props.handleSavePlaylist(playlist)} variant="contained">Save to My Mixtapes</Button>
                     </>
                 )}
 

@@ -65,12 +65,12 @@ class InputForm extends React.Component {
             </Select>
 
           </FormControl>
-            <Button id="contentButton" variant="contained" size='large' style={{backgroundColor: 'gray', height: '55px' }}
+            <Button className="contentButton" variant="contained"
               onClick={() => {
                 alert('clicked');
               }}
             >
-              SEARCH
+              Search
             </Button>
         </Box>
       </Container>
