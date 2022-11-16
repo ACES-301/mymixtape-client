@@ -8,7 +8,7 @@ class Header extends React.Component {
     return (
       <div className='header'>
         <Navbar collapseOnSelect expand="lg" variant="dark" className='header'>
-          <Navbar.Brand className='headerTitle'>MY MIXTAPE</Navbar.Brand>
+          <Navbar.Brand className='headerTitle'>My Mixtape</Navbar.Brand>
         </Navbar>
       </div>
     )
