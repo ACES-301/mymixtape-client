@@ -3,59 +3,32 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import InputForm from './InputForm'
 import NewPlaylist from './NewPlaylist';
-import {Buffer} from 'buffer';
-
 
 class Content extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // savedPlaylists: [],
       newPlaylist: {},
-      // notes: []
+      spotifyUserProfileGenerator: ''
     }
   }
 
   async componentDidMount() {
-    console.log(this.props.auth0);
-    const config = {
-      baseURL: 'https://accounts.spotify.com/api/token',
-      headers: {
-        'Authorization': 'Basic ' + (Buffer.from(process.env.REACT_APP_CLIENTID + ':' + process.env.REACT_APP_CLIENT_SECRET).toString('base64'))
-      },
-      form: {
-        grant_type: 'client_credentials'
-      },
-      json: true
-    };
-
-  const response = await axios.post(config);
-  console.log(response.data);
-    // if (this.props.auth0.isAuthenticated) {
-    //   const res = await this.props.auth0.getIdTokenClaims();
-    //   const jwt = res.__raw;
-
-    //   // leave this console here in order to grab your token for backend testing in Thunder Client
-    //   console.log('token: ', jwt);
-
-    //   const config = {
-    //     headers: { "Authorization": `Bearer ${jwt}` },
-    //     method: 'get',
-    //     baseURL: process.env.REACT_APP_SERVER,
-    //     url: '/playlist'
-    //   }
-
-    //   const playlistResponse = await axios(config);
-
-    //   console.log("Playlist from SpotifyApi: ", playlistResponse.data);
-      
-    //   this.setState({ newPlaylist: playlistResponse.data });
-    // }
+    console.log('Auth0 in Content: ', this.props.auth0);
+    if (this.props.auth0.isAuthenticated) {
+      const response = await axios.get('http://localhost:3001/login');
+      console.log('THIS IS THE RESPONSE YOU HAVE BEEN LOOKING FOR! ', response.data);
+      // this.setState({spotifyUserProfileGenerator: response.data })
+      const results = await axios.get(response.data);
+      console.log(results);
+    }
   }
+
 
   render() {
     return (
       <>
+        {/* <button onClick={this.getThisLink} >Click me for your Spotify Profile</button> */}
         <InputForm />
         <h1>Recommended Playlist</h1>
         <NewPlaylist

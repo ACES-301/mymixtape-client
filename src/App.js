@@ -31,29 +31,29 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount = async () => {
-    if (this.state.code) {
-      const config = {
-        method: "post",
-        baseURL: 'https://accounts.spotify.com/api/token',
-        data: URLSearchParams.toString({
-          code: this.state.code,
-          // redirect_uri: window.location.origin,
-          redirect_uri: 'https://dev-xilzfwl68pl0aigp.us.auth0.com/login/callback',
-          grant_type: 'authorization_code',
-          // client_id: process.env.REACT_APP_CLIENTID
-        }),
-        headers: {
-          'Authorization': 'Basic ' + (new Buffer.from(process.env.REACT_APP_CLIENTID + ':' + process.env.REACT_APP_CLIENT_SECRET).toString('base64')),
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        // json: true,
-      };
-      console.log("AuthOption: ", config);
-      const response = await axios(config);
-      console.log('Res: ', response.data);
-    }
-  }
+  // componentDidMount = async () => {
+  //   if (this.state.code) {
+  //     const config = {
+  //       method: "post",
+  //       baseURL: 'https://accounts.spotify.com/api/token',
+  //       data: URLSearchParams.toString({
+  //         code: this.state.code,
+  //         // redirect_uri: window.location.origin,
+  //         redirect_uri: 'https://dev-xilzfwl68pl0aigp.us.auth0.com/login/callback',
+  //         grant_type: 'authorization_code',
+  //         // client_id: process.env.REACT_APP_CLIENTID
+  //       }),
+  //       headers: {
+  //         'Authorization': 'Basic ' + (new Buffer.from(process.env.REACT_APP_CLIENTID + ':' + process.env.REACT_APP_CLIENT_SECRET).toString('base64')),
+  //         'Content-Type': 'application/x-www-form-urlencoded'
+  //       },
+  //       // json: true,
+  //     };
+  //     console.log("AuthOption: ", config);
+  //     const response = await axios(config);
+  //     console.log('Res: ', response.data);
+  //   }
+  // }
 
 
   render() {
