@@ -43,7 +43,8 @@ class InputForm extends React.Component {
           </Form.Group>
 
           <Form.Group controlId='formGenre'>
-            <Form.Select aria-label="Default select example"
+          <Form.Control
+          as="select"
             onChange={this.props.handleChangeGenre}
             >
               <option>Pick a Genre</option>
@@ -54,7 +55,7 @@ class InputForm extends React.Component {
               <option value="pop">Pop</option>
               <option value="rap">Rap</option>
               <option value="rock">Rock</option>
-            </Form.Select>
+            </Form.Control>
           </Form.Group>
           <Button type="submit" id="contentButton">Search!</Button>
         </Form>
