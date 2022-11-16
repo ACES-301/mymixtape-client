@@ -65,24 +65,32 @@ class App extends React.Component {
     }
   };
 
-  handleSearchPlaylist = async (event) => {
-    event.preventDefault();
-    try {
-      const config = {
-        method: "get",
-        baseURL: process.env.REACT_APP_SERVER,
-        url: "/playlist",
-      };
-      const response = await axios(config);
-      this.setState({ newPlaylist: response.data });
-      console.log("new playlist from spotify :", response.data);
-      console.log("Search successful ", this.state.newPlaylist);
-      console.log(this.state.keyword);
-      console.log(this.state.genre);
-    } catch (error) {
-      console.error("Error with search", error);
-    }
-  };
+
+  handleSearchPlaylist = async () => {
+    const url = `${process.env.REACT_APP_SERVER}/search?keyword=${this.state.keyword}&genre=${this.state.genre}`;
+    const response = await axios.get(url);
+    console.log(response.data);
+    this.setState({ newPlaylist: response.data });
+  }
+
+  // handleSearchPlaylist = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const config = {
+  //       method: "get",
+  //       baseURL: process.env.REACT_APP_SERVER,
+  //       url: "/playlist",
+  //     };
+  //     const response = await axios(config);
+  //     this.setState({ newPlaylist: response.data });
+  //     console.log("new playlist from spotify :", response.data);
+  //     console.log("Search successful ", this.state.newPlaylist);
+  //     console.log(this.state.keyword);
+  //     console.log(this.state.genre);
+  //   } catch (error) {
+  //     console.error("Error with search", error);
+  //   }
+  // };
 
   handleSavePlaylist = async (playlistToBeSaved) => {
     try {
@@ -148,7 +156,8 @@ class App extends React.Component {
         data: playlistToBeUpdated,
       };
 
-      const res = await axios(config);
+      const response = await axios(config);
+      console.log(response.data);
       const updatedPlaylists = this.state.savedPlaylists.map(preExistingPlaylist => {
         if (preExistingPlaylist._id === playlistToBeUpdated._id) {
           return playlistToBeUpdated;

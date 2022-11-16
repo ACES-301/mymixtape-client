@@ -1,6 +1,7 @@
 import React from 'react';
 import SpotifyPlayer from 'react-spotify-player';
 import Button from '@mui/material/Button';
+import NotesCard from './NotesCard'
 
 
 const size = {
@@ -8,11 +9,7 @@ const size = {
     height: 300,
 };
 const view = 'list'; // or 'coverart'
-<<<<<<< HEAD
 const theme = 'white'; // or 'black'
-=======
-const theme = 'white'; // or 'white'
->>>>>>> d25c4e0b5233d945fff1bc1219a1f0a903776d13
 
 class NewPlaylist extends React.Component {
 
@@ -28,11 +25,8 @@ class NewPlaylist extends React.Component {
                             size={size}
                             view={view}
                             theme={theme} />
-<<<<<<< HEAD
                         <NotesCard />
-                        <Button className="contentButton" onChange={this.props.handleSavePlaylist(playlist)} variant="contained">Save to My Mixtapes</Button>
-=======
-                        <Button id="contentButton" 
+                        <Button className="contentButton" variant="contained"
                         onClick={()=> {
                             const playlisToBeSaved = {
                                 genre: playlist.genre,
@@ -42,8 +36,7 @@ class NewPlaylist extends React.Component {
                               console.log(`playlist to be saved: `, playlisToBeSaved);
                               this.props.handleSavePlaylist(playlisToBeSaved);
                         }} 
-                        variant="outlined">SAVE TO MY MIXTAPES</Button>
->>>>>>> d25c4e0b5233d945fff1bc1219a1f0a903776d13
+                    >SAVE TO MY MIXTAPES</Button>
                     </>
                 )}
 
