@@ -5,12 +5,16 @@ import NotesModal from './NotesModal';
 function NotesCard () {
   return (
     <>
-    <Card>
-      <Card.Header> <NotesModal /> </Card.Header>
-      <Card.Body>
-        <Card.Text>
+    <Card className="card">
+      <Card.Header className="cardHeader"> <NotesModal /> </Card.Header>
+      {/* { this.props.notes.map(notes => { */}
+      <Card.Body className="cardBody">
+        <Card.Text className="cardText">
+         
         </Card.Text>
       </Card.Body>
+          
+        {/* })} */}
     </Card>
     </>
   );

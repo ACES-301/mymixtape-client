@@ -30,9 +30,14 @@ class NotesModal extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
+    <>
+      <Button id="annotateButton" onClick={this.handleShow}>Annotate</Button>
+=======
       <>
         {/* <Button id="addNoteButton" 
       onClick={this.handleShow} {...this.props.handleSelectPlaylist}
+>>>>>>> d25c4e0b5233d945fff1bc1219a1f0a903776d13
 
       >ANNOTATE</Button> */}
 
@@ -57,6 +62,22 @@ class NotesModal extends React.Component {
                   />
                 </Form.Group>
 
+<<<<<<< HEAD
+                <Button className="contentButton" variant="contained" type="submit" onClick={this.handleClose}>Add Note</Button>
+
+                </Form>
+            </Container></Modal.Body>
+        <Modal.Footer>
+          <Button className="contentButton" variant="contained" onClick={this.handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+            
+        
+    )
+=======
                 <Button id="modalButton" type="submit">
                   Add Note
                 </Button>
@@ -75,6 +96,7 @@ class NotesModal extends React.Component {
         </Modal>
       </>
     );
+>>>>>>> d25c4e0b5233d945fff1bc1219a1f0a903776d13
   }
 }
 

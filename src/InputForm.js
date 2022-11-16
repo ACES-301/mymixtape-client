@@ -93,6 +93,16 @@ class InputForm extends React.Component {
             </Select>
 
           </FormControl>
+<<<<<<< HEAD
+            <Button className="contentButton" variant="contained"
+              onClick={() => {
+                alert('clicked');
+              }}
+            >
+              Search
+            </Button>
+        </Box>
+=======
           <Button id="contentButton" type="submit" variant="contained" size='large'
             onClick={this.props.handleSearchPlaylist}
           >
@@ -100,6 +110,7 @@ class InputForm extends React.Component {
           </Button>
         </Box> */}
 
+>>>>>>> d25c4e0b5233d945fff1bc1219a1f0a903776d13
       </Container>
     );
   }
