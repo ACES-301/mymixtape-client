@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavItem } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 
 

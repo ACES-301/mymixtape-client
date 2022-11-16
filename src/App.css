@@ -13,6 +13,7 @@ body {
 .App {
   display: flex;
   text-align: center;
+  
 }
 
 .header {
@@ -141,5 +142,10 @@ background-color: white;
 
 .footer {
   padding-left: 30px;
+<<<<<<< HEAD
   background-image: linear-gradient(to left, #30dd8a, #c7e5ce 50%);
 }
+=======
+  background-color: #9FB5A3;
+}
+>>>>>>> d25c4e0b5233d945fff1bc1219a1f0a903776d13
