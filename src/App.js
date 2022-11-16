@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
@@ -12,9 +12,11 @@ import Logout from './Logout';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  // Navigate
+  // redirect
 } from "react-router-dom";
-import { Buffer } from 'buffer';
+// import { Buffer } from 'buffer';
 // import querystring from 'querystring';
 
 
@@ -25,9 +27,10 @@ class App extends React.Component {
       savedPlaylists: [],
       // newPlaylist: {},
       notes: [],
-      code: new URLSearchParams(window.location.search).get("code"),
-      state: new URLSearchParams(window.location.search).get("state"),
+      // code: new URLSearchParams(window.location.search).get("code"),
+      // state: new URLSearchParams(window.location.search).get("state"),
       // code_verifier: new URLSearchParams(window.location.search).get("code_verifier")
+      spotifyUserProfile: ''
     }
   }
 
@@ -55,6 +58,8 @@ class App extends React.Component {
   //   }
   // }
 
+  setspotifyUserProfile = (spotifyUserProfile) => this.setState({ spotifyUserProfile }) 
+
 
   render() {
     console.log('State: ', this.state);
@@ -67,13 +72,23 @@ class App extends React.Component {
             <Route
               exact path="/"
               element={this.props.auth0.isAuthenticated ?
-                <Content
-                  newPlaylist={this.state.newPlaylist} />
+                  <Content
+                    newPlaylist={this.state.newPlaylist}
+                    // setspotifyUserProfile={this.setspotifyUserProfile}
+                    // code={this.state.code}
+                    // state={this.state.state}
+                    />
                 :
                 <Logout />
               }
             >
             </Route>
+
+
+            {/* <Route path={this.state.spotifyUserProfile}> */}
+              {/* <Navigate to="/" replace={true} /> */}
+              {/* <redirect  to="/" /> */}
+            {/* </Route> */}
 
             <Route
               exact path="/mymixtapes"

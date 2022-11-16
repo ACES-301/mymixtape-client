@@ -14,21 +14,27 @@ class Content extends React.Component {
   }
 
   async componentDidMount() {
-    console.log('Auth0 in Content: ', this.props.auth0);
+    // console.log('Auth0 in Content: ', this.props.auth0);
     if (this.props.auth0.isAuthenticated) {
       const response = await axios.get('http://localhost:3001/login');
       console.log('THIS IS THE RESPONSE YOU HAVE BEEN LOOKING FOR! ', response.data);
-      // this.setState({spotifyUserProfileGenerator: response.data })
-      const results = await axios.get(response.data);
-      console.log(results);
+      // this.props.setspotifyUserProfile(response.data);
+      // this.callCallback();
+      this.setState({spotifyUserProfileGenerator: response.data })
     }
+  }
+
+  async callCallback() {
+    const response = await axios.get(`http://localhost:3001/callback?code=AQAKfr_j9YPwJAcVRvCNbVVZ2deeX7EKS0SXotUd3FDJlj4NQ0hOASDvJKqqeYKScypfLp4b4yMk4RuvaGdp4ukSe8gpOSmzrD8E-MVgXhTkwN1sJ0xfnVii1zf5vZpQT_U3x442hNxL2DEtV8AjDR7DLqONhOPCBxfrsOvwjHKryMNupXQHfxhgHNo02ECE6D5hdhAZoEO8qYBi5n0bKHBdzT_zdQg&state=kNezTavu2Kpc0Gau`)
+    console.log("MEOWWWW! ", response.data);
+    // http://localhost:3001/callback/?code=AQAKfr_j9YPwJAcVRvCNbVVZ2deeX7EKS0SXotUd3FDJlj4NQ0hOASDvJKqqeYKScypfLp4b4yMk4RuvaGdp4ukSe8gpOSmzrD8E-MVgXhTkwN1sJ0xfnVii1zf5vZpQT_U3x442hNxL2DEtV8AjDR7DLqONhOPCBxfrsOvwjHKryMNupXQHfxhgHNo02ECE6D5hdhAZoEO8qYBi5n0bKHBdzT_zdQg&state=kNezTavu2Kpc0Gau
   }
 
 
   render() {
     return (
       <>
-        {/* <button onClick={this.getThisLink} >Click me for your Spotify Profile</button> */}
+      <a href={this.state.spotifyUserProfileGenerator} >Click Me for your Spotify Profile</a>
         <InputForm />
         <h1>Recommended Playlist</h1>
         <NewPlaylist
