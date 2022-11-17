@@ -10,7 +10,6 @@ body {
   font-family: 'Poppins', sans-serif;
   color: rgb(62, 62, 62);
 }
-
 .login {
   display: flex;
   flex-direction: column;
@@ -84,7 +83,6 @@ padding-left: 0;
   font-size: 5.5em;
 }
 
-
 Button {
   border: none;
   background-color: white;
@@ -92,7 +90,6 @@ Button {
   width: 150px;
   border-radius: 50px;
 }
-
 
 .menuItem {
   border: none;
@@ -167,15 +164,6 @@ border-radius: 5px;
 .cardHeader {
 background-size: 850px;
 background-color: white;
-/* background-image: linear-gradient(to bottom,  rgb(27, 27, 27), #4e4e4e); */
-}
-
-.cardBody {
-  
-}
-
-.cardText {
-
 }
 
 #modalId {
@@ -183,7 +171,6 @@ background-color: white;
   color: gray;
 
 } 
-
 
 .footer {
   padding-left: 30px;
