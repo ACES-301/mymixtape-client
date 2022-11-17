@@ -11,6 +11,7 @@ root.render(
     domain={process.env.REACT_APP_DOMAIN}
     clientId={process.env.REACT_APP_CLIENTID}
     redirectUri={window.location.origin}
+    // redirectUri={`https://${process.env.REACT_APP_DOMAIN}/login/callback`}
     audience= {`https://${process.env.REACT_APP_DOMAIN}/api/v2/`}
     scope="read:current_user update:current_user_metadata"
   >

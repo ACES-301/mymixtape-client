@@ -1,14 +1,14 @@
 import React from "react";
-// import Form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-// import Button from "react-bootstrap/Button";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Button from '@mui/material/Button';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Button from "react-bootstrap/Button";
+// import Box from "@mui/material/Box";
+// import TextField from "@mui/material/TextField";
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Button from '@mui/material/Button';
+// import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 class InputForm extends React.Component {
   //   onSubmit = (event) => {
@@ -32,8 +32,35 @@ class InputForm extends React.Component {
   render() {
     return (
       <Container>
+        <Form onSubmit={this.props.handleSearchPlaylist}>
+          <Form.Group controlId='formKeyword'>
+            <Form.Label>Discover New Music</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder="Keyword" 
+              onChange={this.props.handleChangeKeyword}
+              />
+          </Form.Group>
 
-        <Box
+          <Form.Group controlId='formGenre'>
+          <Form.Control
+          as="select"
+            onChange={this.props.handleChangeGenre}
+            >
+              <option>Pick a Genre</option>
+              <option value="alternative">Alternative</option>
+              <option value="classical">Classical</option>
+              <option value="dance">Dance</option>
+              <option value="indie">Indie</option>
+              <option value="pop">Pop</option>
+              <option value="rap">Rap</option>
+              <option value="rock">Rock</option>
+            </Form.Control>
+          </Form.Group>
+          <Button type="submit" id="contentButton">Search!</Button>
+        </Form>
+
+        {/* <Box
           component="form"
           sx={{
             "& > :not(style)": { m: 1, width: "25ch" },
@@ -45,6 +72,7 @@ class InputForm extends React.Component {
             id="formKeyword"
             label="Enter a Keyword"
             variant="outlined"
+            onChange={this.props.handleChangeKeyword}
           />
           <FormControl fullWidth>
             <InputLabel id="formGenre">Select a Genre</InputLabel>
@@ -53,26 +81,24 @@ class InputForm extends React.Component {
               id="formGenre"
               // value={genre}
               label="Genre"
-            // onChange={handleChange}
+              onChange={this.props.handleChangeGenre}
             >
-              <MenuItem className="menuItem" value={'Alternative'}>Alternative</MenuItem>
-              <MenuItem className="menuItem" value={'Classical'}>Classical</MenuItem>
-              <MenuItem className="menuItem" value={'Dance'}>Dance</MenuItem>
-              <MenuItem className="menuItem" value={'Indie'}>Indie</MenuItem>
-              <MenuItem className="menuItem" value={'Pop'}>Pop</MenuItem>
-              <MenuItem className="menuItem" value={'Rap'}>Rap</MenuItem>
-              <MenuItem className="menuItem" value={'Rock'}>Rock</MenuItem>
+              <MenuItem className="menuItem" value={'alternative'}>Alternative</MenuItem>
+              <MenuItem className="menuItem" value={'classical'}>Classical</MenuItem>
+              <MenuItem className="menuItem" value={'dance'}>Dance</MenuItem>
+              <MenuItem className="menuItem" value={'indie'}>Indie</MenuItem>
+              <MenuItem className="menuItem" value={'pop'}>Pop</MenuItem>
+              <MenuItem className="menuItem" value={'rap'}>Rap</MenuItem>
+              <MenuItem className="menuItem" value={'rock'}>Rock</MenuItem>
             </Select>
 
           </FormControl>
-            <Button id="contentButton" variant="contained" size='large' style={{backgroundColor: 'gray', height: '55px' }}
-              onClick={() => {
-                alert('clicked');
-              }}
-            >
-              SEARCH
-            </Button>
-        </Box>
+          <Button className="contentButton" type="submit" variant="contained"
+            onClick={this.props.handleSearchPlaylist}
+          >
+            SEARCH
+          </Button>
+        </Box> */}
       </Container>
     );
   }

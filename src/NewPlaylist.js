@@ -1,7 +1,7 @@
 import React from 'react';
 import SpotifyPlayer from 'react-spotify-player';
 import Button from '@mui/material/Button';
-import NotesCard from './NotesCard';
+import NotesCard from './NotesCard'
 
 
 const size = {
@@ -9,22 +9,32 @@ const size = {
     height: 300,
 };
 const view = 'list'; // or 'coverart'
-const theme = 'black'; // or 'white'
+const theme = 'white'; // or 'black'
 
 class NewPlaylist extends React.Component {
+
     render() {
         return (
             <>
-                <h1>Fresh Mixtape</h1>
                 {this.props.newPlaylist.map(playlist =>
-                    <>
-                        <SpotifyPlayer
+                // ((playlist.keyword.includes(this.props.keyword) || playlist.genre === this.props.genre) || (playlist.description.includes(this.props.keyword) && playlist.genre === this.props.genre)) &&
+                <>
+                <h2>Fresh Mixtape</h2>
+                        <SpotifyPlayer id="spotifyPlayer"
                             uri={playlist.uri}
                             size={size}
                             view={view}
                             theme={theme} />
                         <NotesCard />
-                        <Button id="contentButton" onChange={this.props.handleSavePlaylist(playlist)} variant="outlined">SAVE TO MY MIXTAPES</Button>
+                        <Button className="contentButton" variant="contained"
+                        onClick={()=> {
+                            const playlisToBeSaved = {
+                                uri: playlist.uri
+                              }
+                              console.log(`playlist to be saved: `, playlisToBeSaved);
+                              this.props.handleSavePlaylist(playlisToBeSaved);
+                        }} 
+                    >SAVE TO MY MIXTAPES</Button>
                     </>
                 )}
 
