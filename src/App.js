@@ -66,8 +66,9 @@ class App extends React.Component {
   };
 
 
-  handleSearchPlaylist = async () => {
-    const url = `${process.env.REACT_APP_SERVER}/search?keyword=${this.state.keyword}&genre=${this.state.genre}`;
+  handleSearchPlaylist = async (event) => {
+    event.preventDefault();
+    const url = `${process.env.REACT_APP_SERVER}/search?keyword=${this.state.keyword}`;
     const response = await axios.get(url);
     console.log(response.data);
     this.setState({ newPlaylist: response.data });

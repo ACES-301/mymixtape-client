@@ -16,10 +16,10 @@ class NewPlaylist extends React.Component {
     render() {
         return (
             <>
-                <h1>Fresh Mixtape</h1>
                 {this.props.newPlaylist.map(playlist =>
-                ((playlist.keyword.includes(this.props.keyword) || playlist.genre === this.props.genre) || (playlist.keyword.includes(this.props.keyword) && playlist.genre === this.props.genre)) &&
-                    <>
+                // ((playlist.keyword.includes(this.props.keyword) || playlist.genre === this.props.genre) || (playlist.description.includes(this.props.keyword) && playlist.genre === this.props.genre)) &&
+                <>
+                <h2>Fresh Mixtape</h2>
                         <SpotifyPlayer id="spotifyPlayer"
                             uri={playlist.uri}
                             size={size}
@@ -29,8 +29,6 @@ class NewPlaylist extends React.Component {
                         <Button className="contentButton" variant="contained"
                         onClick={()=> {
                             const playlisToBeSaved = {
-                                genre: playlist.genre,
-                                keyword: playlist.keyword,
                                 uri: playlist.uri
                               }
                               console.log(`playlist to be saved: `, playlisToBeSaved);
