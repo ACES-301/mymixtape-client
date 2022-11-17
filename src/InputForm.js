@@ -57,7 +57,7 @@ class InputForm extends React.Component {
               <option value="rock">Rock</option>
             </Form.Control>
           </Form.Group>
-          <Button type="submit" id="contentButton">Search!</Button>
+          <Button type="submit" className="contentButton">Search!</Button>
         </Form>
 
         {/* <Box

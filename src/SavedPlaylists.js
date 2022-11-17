@@ -2,7 +2,7 @@ import React from "react";
 import SpotifyPlayer from "react-spotify-player";
 import NotesModal from "./NotesModal";
 import { Button, Container } from "react-bootstrap";
-// import NotesCard from './NotesCard';
+import NotesCard from './NotesCard';
 
 const size = {
   width: "100%",
@@ -20,13 +20,13 @@ class SavedPlaylists extends React.Component {
         {this.props.savedPlaylists.map((playlist) => (
           <Container>
             <Button
-              id="addNoteButton"
+              className="contentButton"
               onClick={() => {
                 this.props.handleSelectPlaylist(playlist);
                 console.log('selected playlist:',this.props.selectedPlaylist);
               }
               }>
-              ANNOTATE</Button> 
+              Annotate</Button> 
             <NotesModal
               handleSelectPlaylist={this.props.handleSelectPlaylist}
               handleAddNote={this.props.handleAddNote}
@@ -35,20 +35,20 @@ class SavedPlaylists extends React.Component {
               handleOnHide={this.props.handleOnHide}
             />
             <Button
-              id="deleteButton"
+              className="contentButton"
               onClick={() => this.props.handleDeletePlaylist(playlist)}
               variant="outlined"
             >
-              REMOVE FROM MY MIXTAPE
+            Remove from My Mixtapes
             </Button>
 
-            {/* <NotesCard /> */}
             <SpotifyPlayer
               uri={playlist.uri}
               size={size}
               view={view}
               theme={theme}
             />
+            <NotesCard />
           </Container>
         ))}
       </>
