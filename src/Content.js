@@ -44,18 +44,18 @@ class Content extends React.Component {
   render() {
     return (
       <div className='content'>
-      {/* <NavBar /> */}
         <InputForm
         handleSearchPlaylist = {this.props.handleSearchPlaylist}
         handleChangeKeyword = {this.props.handleChangeKeyword}
         handleChangeGenre = {this.props.handleChangeGenre}
         />
+        {this.props.newPlaylist.length>0 &&
         <NewPlaylist
             newPlaylist = {this.props.newPlaylist}
             handleSavePlaylist = {this.props.handleSavePlaylist}
             keyword={this.props.keyword}
             genre={this.props.genre}
-        />
+        />}
       </div>
     )
   }

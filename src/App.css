@@ -3,17 +3,75 @@
 
 html,body {
   height:100%;
+  
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   color: rgb(62, 62, 62);
 }
+.login {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap:2em;
+  background-image: linear-gradient(to left, #30dd8a, #c7e5ce 50%);
+  padding: 4em;
+  height: 100vh;
+}
+
+.cassette {
+  width: 25%
+}
 
 .App {
   display: flex;
+  gap:5em;
   text-align: center;
-  
+  min-height: 100vh;
+}
+/* 
+.notsidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+
+
+.content {
+  padding-top: 3em;
+  width:1100px;
+}
+
+.inputform {
+  width:250px;
+  margin-bottom: 3em;
+float: left;
+padding-left: 0;
+}
+
+.newPlaylists {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:2em;
+}
+
+
+.newPlaylist {
+  display: flex;
+  flex-direction: column;
+}
+
+.savedPlaylists{
+  padding: 3em;
+}
+
+.profile {
+ padding: 3em;
 }
 
 .header {
@@ -136,11 +194,19 @@ background-color: white;
 
 } 
 
-.content {
-  padding: 3em;
-}
+
+
 
 .footer {
   padding-left: 30px;
   background-image: linear-gradient(to left, #30dd8a, #c7e5ce 50%);
+  text-align: center;
+  position: "fixed";
+  left: "0";
+  bottom: "0";
 }
+
+.footer2 {
+  width: 100%;
+}
+
