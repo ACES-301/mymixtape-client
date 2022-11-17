@@ -22,7 +22,7 @@ class App extends React.Component {
       selectedPlaylist: {},
       notes: [],
       keyword: "",
-      genre: "",
+      genre: "none",
       show: false,
     };
   }

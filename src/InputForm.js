@@ -24,7 +24,7 @@ class InputForm extends React.Component {
           as="select"
             onChange={this.props.handleChangeGenre}
             >
-              <option>Pick a Genre</option>
+              <option value="none">Pick a Genre</option>
               <option value="Alternative">Alternative</option>
               <option value="Classical">Classical</option>
               <option value="Dance">Dance</option>
