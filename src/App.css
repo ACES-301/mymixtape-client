@@ -3,21 +3,80 @@
 
 html,body {
   height:100%;
+  
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: gray;
+  color: rgb(62, 62, 62);
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap:2em;
+  background-image: linear-gradient(to left, #30dd8a, #c7e5ce 50%);
+  padding: 4em;
+  height: 100vh;
+}
+
+.cassette {
+  width: 25%
 }
 
 .App {
   display: flex;
+  gap:5em;
   text-align: center;
+  min-height: 100vh;
+}
+/* 
+.notsidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+
+
+.content {
+  padding-top: 3em;
+  width:1100px;
+}
+
+.inputform {
+  width:250px;
+  margin-bottom: 3em;
+float: left;
+padding-left: 0;
+}
+
+.newPlaylists {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:2em;
+}
+
+
+.newPlaylist {
+  display: flex;
+  flex-direction: column;
+}
+
+.savedPlaylists{
+  padding: 3em;
+}
+
+.profile {
+ padding: 3em;
 }
 
 .header {
   height: 180px;
-  background-image: linear-gradient(to right, #9FB5A3 25%, #c7e5ce 100%);
+  background-image: linear-gradient(to top, #25aae1,  #8b20e3);
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -29,7 +88,7 @@ body {
   /* background-color: #282c34; */
   color: white;
   letter-spacing: 2.5px;
-  font-size: 4.5em;
+  font-size: 5.5em;
 }
 
 /* .login {
@@ -39,57 +98,94 @@ body {
 
 Button {
   border: none;
-  color: gray;
+  background-color: white;
+  color: rgb(62, 62, 62);
   width: 150px;
-  border-radius: 6px;
+  border-radius: 50px;
 }
 
 .menuItem {
   border: none;
   color: white;
-  background-color: gray;
+  background-color: white;
 }
 
-#contentButton {
+.contentButton {
+  width: 200px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif !important;
+  color: #fff;
+  cursor: pointer;
+  margin: 1rem !important;
+  height: 55px;
+  text-align:center;
   border: none;
-  color: white;
-  font-size: 1.1rem;
-  background-image: linear-gradient(to right, #c7e5ce 0%, #e9ffeb 100%);
-  background-color: gray;
-  width: 15rem;
-  transition: 0.5s;
-  box-shadow: 0 0 20px #eee;
-  margin: 1rem;
-  height: 3rem;
-  border-radius: 6px;
-  box-shadow: 5px 5px
-  rgba(0, 0, 0, 0.1);
+  background-size: 300% 100%;
+  background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+  border-radius: 50px !important;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .contentButton:hover {
-  background-position: right center;
+  background-position: 100% 0;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
-#saveButton:hover {
-    background-position: right center;
+.contentButton:focus {
+  outline: none;
 }
 
-#addNoteButton {
-  border: none;
+.contentButton:hover {
   color: white;
-  font-size: 1.1rem;
-  background-image: linear-gradient(to right, #c7e5ce 0%, #e9ffeb 100%);
+  transition: all .4s ease-in-out;
+}
+
+#annotateButton {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(62, 62, 62) !important;
+  font-size: 1.2rem;
   width: 15rem;
   transition: 0.5s;
-  box-shadow: 0 0 20px #eee;
-  height: 3rem;
-  border-radius: 6px;
-  box-shadow: 5px 5px
-  rgba(0, 0, 0, 0.1);
+  margin: .1rem !important;
+  font-weight: 525;
 }
 
-#addNoteButton:hover {
-  background-position: right center;
+.annotateButton:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.214) !important;
+  background-position: 100% 0;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+}
+
+
+.card {
+width: 100%;
+border: 1px solid #ddd;
+border-radius: 5px;
+
+}
+
+.cardHeader {
+background-size: 850px;
+background-color: white;
+/* background-image: linear-gradient(to bottom,  rgb(27, 27, 27), #4e4e4e); */
+}
+
+.cardBody {
+  
+}
+
+.cardText {
+
 }
 
 #modalId {
@@ -98,25 +194,19 @@ Button {
 
 } 
 
-#modalButton {
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
-  background-image: linear-gradient(to right, #c7e5ce 0%, #e9ffeb 100%);
-  width: 15rem;
-  transition: 0.5s;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 6px;
-  box-shadow: 5px 5px
-  rgba(0, 0, 0, 0.1);
-}
 
-.content {
-  padding: 3em;
-}
+
 
 .footer {
   padding-left: 30px;
-  background-color: #9FB5A3;
+  background-image: linear-gradient(to left, #30dd8a, #c7e5ce 50%);
+  text-align: center;
+  position: "fixed";
+  left: "0";
+  bottom: "0";
 }
+
+.footer2 {
+  width: 100%;
+}
+
